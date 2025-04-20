@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity() {
         val materialButton = binding.materialButton
 
         val recyclerViewButton = binding.materialButton2
+        val jetpackCompose = binding.materialButton3
 
         binding.materialButton.setOnClickListener {
             val email = binding.materialTextInput.editText?.text.toString()
@@ -55,6 +56,10 @@ class MainActivity : AppCompatActivity() {
 
         binding.materialButton2.setOnClickListener{
             val intent = Intent(this, RecyclerActivity::class.java)
+            startActivity(intent)
+        }
+        binding.materialButton3.setOnClickListener{
+            val intent = Intent(this, ComposeActivity::class.java)
             startActivity(intent)
         }
 
