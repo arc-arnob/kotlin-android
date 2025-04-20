@@ -29,6 +29,8 @@ class MainActivity : AppCompatActivity() {
         val emailInput = binding.materialTextInput.editText?.text
         val materialButton = binding.materialButton
 
+        val recyclerViewButton = binding.materialButton2
+
         binding.materialButton.setOnClickListener {
             val email = binding.materialTextInput.editText?.text.toString()
             // Do something with the email
@@ -49,6 +51,11 @@ class MainActivity : AppCompatActivity() {
             Second activity's onStop() and onDestroy() are called
             */
 
+        }
+
+        binding.materialButton2.setOnClickListener{
+            val intent = Intent(this, RecyclerActivity::class.java)
+            startActivity(intent)
         }
 
         binding.editText.addTextChangedListener(object : TextWatcher {
