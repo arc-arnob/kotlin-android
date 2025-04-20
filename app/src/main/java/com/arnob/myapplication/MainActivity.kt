@@ -8,6 +8,7 @@ import android.text.TextWatcher
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.arnob.myapplication.databinding.ActivityMainBinding
 
@@ -24,6 +25,15 @@ class MainActivity : AppCompatActivity() {
         val textView = binding.textView
         val editText = binding.editText
         val button = binding.button
+
+        val emailInput = binding.materialTextInput.editText?.text
+        val materialButton = binding.materialButton
+
+        binding.materialButton.setOnClickListener {
+            val email = binding.materialTextInput.editText?.text.toString()
+            // Do something with the email
+            Toast.makeText(this, "Email: $email", Toast.LENGTH_SHORT).show()
+        }
 
         binding.button.setOnClickListener{
             val name = binding.editText.text.toString()
