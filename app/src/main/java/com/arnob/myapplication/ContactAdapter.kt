@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class ContactAdapter(
-    private val contacts : List<Contact>,
+    private var contacts : List<Contact>,
     private val onContactClick: (Contact) -> Unit
 ) : RecyclerView.Adapter<ContactAdapter.ContactViewHolder>(){
 
@@ -34,6 +34,9 @@ class ContactAdapter(
             onContactClick(contact)
         }
     }
-
+    fun updateContacts(newContacts: List<Contact>) {
+        contacts = newContacts
+        notifyDataSetChanged() // For simplicity; consider using DiffUtil for better performance
+    }
     override fun getItemCount() = contacts.size
 }
