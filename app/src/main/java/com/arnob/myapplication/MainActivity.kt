@@ -1,5 +1,6 @@
 package com.arnob.myapplication
 
+import android.content.Intent
 import android.os.Binder
 import android.os.Bundle
 import android.text.Editable
@@ -26,7 +27,18 @@ class MainActivity : AppCompatActivity() {
 
         binding.button.setOnClickListener{
             val name = binding.editText.text.toString()
-            binding.textView.text = "Hello $name!"
+            val intent  = Intent(this, SecondaryActivity::class.java)
+            intent.putExtra("NAME_KEY", name) // Optional: Pass data to the second activity
+            startActivity(intent)
+            /*
+            First activity's onPause() is called
+            Second activity's onCreate(), onStart(), and onResume() are called
+            First activity's onStop() is called
+            When returning, second activity's onPause() is called
+            First activity's onRestart(), onStart(), and onResume() are called
+            Second activity's onStop() and onDestroy() are called
+            */
+
         }
 
         binding.editText.addTextChangedListener(object : TextWatcher {
