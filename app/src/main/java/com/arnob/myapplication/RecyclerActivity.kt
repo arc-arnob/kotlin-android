@@ -59,18 +59,18 @@ class RecyclerActivity : AppCompatActivity() {
         binding.contactsRecyclerView.adapter = contactAdapter
 
         // Observe contacts from ViewModel
-        lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.contacts.collect { contacts ->
-                    contactAdapter = ContactAdapter(contacts) { contact ->
-                        Toast.makeText(this@RecyclerActivity,
-                            "Selected: ${contact.name}",
-                            Toast.LENGTH_SHORT).show()
-                    }
-                    binding.contactsRecyclerView.adapter = contactAdapter
-                }
-            }
-        }
+//        lifecycleScope.launch {
+//            repeatOnLifecycle(Lifecycle.State.STARTED) {
+//                viewModel.contacts.collect { contacts ->
+//                    contactAdapter = ContactAdapter(contacts) { contact ->
+//                        Toast.makeText(this@RecyclerActivity,
+//                            "Selected: ${contact.name}",
+//                            Toast.LENGTH_SHORT).show()
+//                    }
+//                    binding.contactsRecyclerView.adapter = contactAdapter
+//                }
+//            }
+//        }
     }
 
     private fun addNewContact() {

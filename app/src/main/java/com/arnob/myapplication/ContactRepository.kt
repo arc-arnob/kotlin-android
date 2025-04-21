@@ -8,9 +8,8 @@ import kotlinx.coroutines.withContext
 
 class ContactRepository(private val contactDao: ContactDao) {
     // Using Flow for reactive updates
-    fun getAllContacts(): Flow<List<Contact>> = flow {
-        emit(contactDao.getAllContacts())
-    }.flowOn(Dispatchers.IO) // DB + Flow → Live syncing UI and UI stays responsive
+    fun getAllContacts(): Flow<List<Contact>> =
+        contactDao.getAllContactsFlow().flowOn(Dispatchers.IO)
 
     suspend fun insertContact(contact: Contact) {
         withContext(Dispatchers.IO) {

@@ -23,7 +23,7 @@ class ContactAdapter(
     }
 
     override fun onBindViewHolder(holder: ContactViewHolder, position: Int) {
-        val contact = contacts[position]
+        var contact = contacts[position]
 
         holder.textName.text = contact.name
         holder.textPhone.text = contact.phone
